@@ -1,4 +1,5 @@
 # React + TypeScript + Vite + Zustand + axios
+# Maintenance of update because the API doesnt work and later i want to change API
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
