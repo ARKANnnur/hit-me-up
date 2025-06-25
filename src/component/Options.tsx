@@ -3,6 +3,7 @@ import Button from "./Button";
 
 export default function Options() {
   const { ai, sideBar, setAi, setSideBar } = useConverstations();
+  const notAvailable = "line-through text-red-500 cursor-not-allowed";
 
   return (
     <div className="flex">
@@ -11,12 +12,25 @@ export default function Options() {
         <div className="h-[2px] w-5 bg-dark-50" />
         <div className="h-[2px] w-5 bg-dark-50" />
       </Button>
-      <Button onClick={() => setAi("chatgpt")} active={ai === "chatgpt"}>
-        <p>Chat Gpt</p>
-      </Button>
-      <Button onClick={() => setAi("geminitext")} active={ai === "geminitext"}>
-        <p>Gemini</p>
-      </Button>
+      <div className="flex overflow-x-auto">
+        <Button
+          onClick={() => setAi("chatgpt")}
+          active={ai === "chatgpt"}
+          disabled
+        >
+          <p className={notAvailable}>Chat Gpt</p>
+        </Button>
+        <Button onClick={() => setAi("gemini")} active={ai === "gemini"}>
+          <p>Gemini</p>
+        </Button>
+        <Button
+          onClick={() => setAi("chatgpt")}
+          active={ai === "chatgpt"}
+          disabled
+        >
+          <p className={notAvailable}>DeepSeek</p>
+        </Button>
+      </div>
     </div>
   );
 }

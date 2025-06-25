@@ -3,31 +3,156 @@
 @tailwind utilities;
 
 @layer base {
-  html{
-   font-family: "Press Start 2P", system-ui;
+  html {
+    font-family: "Press Start 2P", system-ui;
   }
 }
 
 @layer components {
   .border-in-l {
-    @apply border-b-light-50 border-r-light-50 border-l-dark-50/50   border-t-transparent border-[3px]
+    @apply border-[3px] border-b-light-50 border-l-dark-50/50 border-r-light-50 border-t-transparent;
   }
   .border-in {
-    @apply border-b-light-50 border-r-light-50 border-l-dark-50/50 border-t-dark-50/50 border-[3px]
+    @apply border-[3px] border-b-light-50 border-l-dark-50/50 border-r-light-50 border-t-dark-50/50;
   }
   .border-out {
-    @apply border-t-light-50 border-l-light-50 border-r-dark-50/50 border-b-dark-50/50 border-[3px]
+    @apply border-[3px] border-b-dark-50/50 border-l-light-50 border-r-dark-50/50 border-t-light-50;
   }
   .border-in-mini {
-    @apply border-b-light-50 border-r-light-50 border-l-dark-50/50 border-t-dark-50/50 border-[2px]
+    @apply border-[2px] border-b-light-50 border-l-dark-50/50 border-r-light-50 border-t-dark-50/50;
   }
   .border-out-mini {
-    @apply border-t-light-50 border-l-light-50 border-r-dark-50/50 border-b-dark-50/50 border-[2px]
+    @apply border-[2px] border-b-dark-50/50 border-l-light-50 border-r-dark-50/50 border-t-light-50;
   }
 }
 
 .border-shadow {
-  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.33) inset;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.33) inset;
+}
+
+.ai h1 {
+  @apply mb-4 mt-6 text-2xl font-bold;
+}
+
+.ai h2 {
+  @apply mb-3 mt-5 text-xl font-semibold;
+}
+
+.ai h3 {
+  @apply mb-2 mt-4 text-lg font-semibold;
+}
+.ai h4 {
+  @apply mb-2 mt-4 text-lg font-semibold;
+}
+.ai h5 {
+  @apply mb-2 mt-4 text-lg font-semibold;
+}
+.ai h6 {
+  @apply mb-2 mt-4 text-base font-semibold;
+}
+
+.ai strong {
+  @apply font-bold;
+}
+
+.ai em {
+  @apply italic;
+}
+
+.ai ul {
+  @apply my-2 list-disc pl-6;
+}
+
+.ai ol {
+  @apply my-2 list-decimal pl-6;
+}
+
+.ai li {
+  @apply my-1;
+}
+
+.ai blockquote {
+  @apply my-4 border-l-4 border-gray-300 pl-4 italic text-gray-600;
+}
+
+.ai pre {
+  @apply my-4 overflow-auto rounded bg-gray-100 p-4 text-sm;
+}
+
+.ai code {
+  @apply rounded bg-gray-200 px-1 py-0.5 font-mono text-sm;
+}
+
+.ai a {
+  @apply text-blue-700 underline hover:text-blue-500;
+}
+
+.ai hr {
+  @apply my-6 border-t border-gray-300;
+}
+
+.ai table {
+  @apply my-4 w-full table-auto border-collapse border border-gray-300;
+}
+
+.ai thead {
+  @apply bg-gray-100;
+}
+
+.ai th {
+  @apply border px-4 py-2 text-left font-semibold;
+}
+
+.ai td {
+  @apply border px-4 py-2;
+}
+
+.ai img {
+  @apply my-3 max-w-full rounded-md;
+}
+
+.ai video {
+  @apply my-4 w-full rounded-md;
+}
+
+.ai iframe {
+  @apply my-4 h-64 w-full rounded;
+}
+
+.ai figure {
+  @apply my-4;
+}
+
+.ai figcaption {
+  @apply mt-1 text-center text-sm text-gray-500;
+}
+
+.ai mark {
+  @apply bg-yellow-200 px-1;
+}
+
+.ai small {
+  @apply text-sm text-gray-500;
+}
+
+.ai details {
+  @apply my-2 cursor-pointer rounded border border-gray-200 bg-gray-50 p-3;
+}
+
+.ai summary {
+  @apply mb-2 font-semibold;
+}
+
+.ai kbd {
+  @apply rounded border border-gray-400 bg-gray-200 px-1 py-0.5 font-mono text-xs;
+}
+
+.ai sup {
+  @apply align-super text-xs;
+}
+
+.ai sub {
+  @apply align-sub text-xs;
 }
 
 .loader {
@@ -36,13 +161,15 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: #25b09b;
-  --_m: 
-    conic-gradient(#0000 10%,#000),
-    linear-gradient(#000 0 0) content-box;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
   -webkit-mask: var(--_m);
-          mask: var(--_m);
+  mask: var(--_m);
   -webkit-mask-composite: source-out;
-          mask-composite: subtract;
+  mask-composite: subtract;
   animation: l3 1s infinite linear;
 }
-@keyframes l3 {to{transform: rotate(1turn)}}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}

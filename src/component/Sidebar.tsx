@@ -9,22 +9,22 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`${sideBar ? "fixed top-16 flex" : "hidden"} h-auto w-1/3 flex-col bg-light-50 lg:relative lg:top-0 lg:flex lg:bg-light-50/85`}
+      className={`${sideBar ? "fixed top-16 flex" : "hidden"} max-h-[40dvh] lg:max-h-full z-50 w-[25%] flex-col bg-light-50 lg:relative lg:top-0 lg:flex lg:bg-light-50/85`}
     >
       <Button
-        custom="flex items-center justify-between w-full text-xs"
+        custom="flex items-center justify-between w-full text-xs sticky top-0"
         onClick={() => setTopic("")}
       >
         <p>New Chat</p>
         <p>+</p>
       </Button>
-      <div className="lg:border-in-l w-full grow border-4 border-l-0 border-t-0 border-dark-200">
+      <div className="lg:border-in-l w-full grow border-4 border-l-0 border-t-0 overflow-y-auto border-dark-200">
         <ul className="space-y-5 p-5">
           {data.length > 0 &&
             data?.map((item: Title) => (
               <li
                 key={item.title}
-                className={`text-xs ${item.title === topic ? "text-dark-50" : "text-light-200"} flex cursor-pointer items-center justify-between underline`}
+                className={`text-xs ${item.title === topic ? "text-pink-800" : "text-light-200"} flex cursor-pointer items-center justify-between underline`}
               >
                 <button onClick={() => setTopic(item.title)}>
                   {item.title}

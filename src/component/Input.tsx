@@ -7,19 +7,19 @@ export default function Input() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (message.length > 3) {
-      await fetchResponse(`https://mr-apis.com/api/ai/${ai}?prompt=${message}`);
+    if (message.length > 1) {
+      await fetchResponse(`/api-proxy/${ai}?message=${message}`);
     }
   };
 
   return (
     <form
       onSubmit={onSubmit}
-      className="mt-5 flex w-full grow flex-col gap-2 lg:flex-row"
+      className="mt-5 flex w-full grow flex-col gap-2 lg:flex-row h-[20dvh] lg:h-[10dvh]"
     >
       <input
         type="text"
-        className="border-in h-full w-full text-xs"
+        className="border-in h-full w-full text-xs px-5"
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />

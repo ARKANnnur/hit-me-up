@@ -17,7 +17,7 @@ export default function Error() {
               </button>
             </div>
             <div className="h-auto w-full grow pt-5 text-center text-xs font-thin">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              {error}
             </div>
           </div>
         </div>

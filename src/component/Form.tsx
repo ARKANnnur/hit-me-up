@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Markdown from 'react-markdown'
 import { useConverstations } from "../context/ConverstationsContext";
 import Input from "./Input";
 import Options from "./Options";
@@ -14,7 +15,7 @@ export default function Form() {
     data?.find((item: any) => item.title === topic)?.conversation ?? [];
 
   return (
-    <div className="flex h-full w-full flex-col lg:w-2/3">
+    <div className="flex h-full w-full flex-col relative">
       <Options />
       <div className="border-in h-[80%] w-full overflow-y-scroll bg-light-50/85">
         <ul className="space-y-1 px-5 pt-5">
@@ -25,9 +26,9 @@ export default function Form() {
                   <p className="text-light-200">&lt;you&gt;</p>
                   <p>{item.you}</p>
                 </div>
-                <div className="">
+                <div className="ai">
                   <p className="text-dark-100">&lt;computer&gt;</p>
-                  <p>{item.computer}</p>
+                  <Markdown>{item.computer}</Markdown>
                 </div>
               </li>
             ))}
