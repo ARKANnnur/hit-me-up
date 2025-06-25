@@ -8,7 +8,8 @@ export default function Input() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (message.length > 1) {
-      await fetchResponse(`/api-proxy/${ai}?message=${message}`);
+      await fetchResponse(`https://hit-me-up-api.vercel.app/api/${ai}?message=${message}`);
+      // await fetchResponse(`/api-proxy/${ai}?message=${message}`); local dev
     }
   };
 
