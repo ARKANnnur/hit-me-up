@@ -37,7 +37,7 @@ const useConverstations = create<
         loading: false,
         error: null,
         sideBar: false,
-        ai: "chatgpt",
+        ai: "gemini",
         topic: "",
         message: "",
         response: "",
@@ -47,21 +47,26 @@ const useConverstations = create<
           set({ error: null });
           try {
             const { message, topic, data } = get();
+            console.log(message, topic, data);
             const res = await axios.get(state);
-            set({ response: res.data, loading: false });
+            console.log(res);
+            set({
+              response: res.data[0].content.parts[0].text,
+              loading: false,
+            });
 
             const title = message.slice(0, 15);
             const newData = topic
               ? {
                   you: message,
-                  computer: res.data.content || res.data.message,
+                  computer: res.data[0].content.parts[0].text,
                 }
               : {
                   title,
                   conversation: [
                     {
                       you: message,
-                      computer: res.data.content || res.data.message,
+                      computer: res.data[0].content.parts[0].text,
                     },
                   ],
                 };
@@ -78,6 +83,7 @@ const useConverstations = create<
               set({ data: [...data, newData] });
             }
           } catch (error: any) {
+            console.log(error);
             set({ error: error.message, loading: false });
           } finally {
             set({ loading: false });

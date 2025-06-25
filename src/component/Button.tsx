@@ -15,7 +15,7 @@ export default function Button({
 }) {
   return (
     <button
-      className={`${custom} ${active ? "border-in" : "border-out"} hover:border-in h-auto bg-dark-300 px-5 py-2 text-sm transition-all duration-200`}
+      className={`${custom} ${active ? "border-in" : "border-out"} ${!disabled && "hover:border-in"} h-auto bg-dark-300 px-5 py-2 text-sm transition-all duration-200`}
       onClick={onClick}
       disabled={disabled}
     >
